@@ -7,6 +7,7 @@ export default class Route {
   public initRoutes(app: Express) {
     const chatController = container.resolve(ChatController);
 
-    app.get("/chat", (req, res) => chatController.getChat(req, res));
+    app.post("/sendMessage", (req, res) => chatController.sendMessage(req, res));
+    app.get("/getMessage", (req, res) => chatController.getMessage(req, res));
   }
 }
